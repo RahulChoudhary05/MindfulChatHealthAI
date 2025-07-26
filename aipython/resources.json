@@ -1,0 +1,98 @@
+[
+  {
+    "title": "Understanding Anxiety: A Comprehensive Guide",
+    "description": "Learn about the different types of anxiety disorders, their symptoms, and evidence-based treatment options.",
+    "url": "https://www.helpguide.org/articles/anxiety/anxiety-disorders-and-anxiety-attacks.htm",
+    "type": "Article",
+    "category": "Anxiety",
+    "tags": ["anxiety", "panic", "worry", "stress", "mental health"]
+  },
+  {
+    "title": "5-Minute Mindfulness Meditation",
+    "description": "A quick guided meditation practice to help reduce stress and increase present-moment awareness.",
+    "url": "https://www.mindful.org/a-five-minute-breathing-meditation/",
+    "type": "Exercise",
+    "category": "Mindfulness",
+    "tags": ["meditation", "mindfulness", "breathing", "relaxation", "stress relief"]
+  },
+  {
+    "title": "Cognitive Behavioral Therapy Techniques",
+    "description": "Practical CBT strategies you can use to challenge negative thought patterns and improve your mood.",
+    "url": "https://www.verywellmind.com/cognitive-behavioral-therapy-techniques-5120243",
+    "type": "Guide",
+    "category": "Depression",
+    "tags": ["depression", "CBT", "therapy", "negative thoughts", "mental health"]
+  },
+  {
+    "title": "Sleep Hygiene: Improving Your Sleep Quality",
+    "description": "Tips and strategies for developing healthy sleep habits and improving your overall sleep quality.",
+    "url": "https://www.sleepfoundation.org/sleep-hygiene",
+    "type": "Article",
+    "category": "Sleep",
+    "tags": ["sleep", "insomnia", "rest", "health", "habits"]
+  },
+  {
+    "title": "Progressive Muscle Relaxation Tutorial",
+    "description": "A step-by-step guide to progressive muscle relaxation, a technique to reduce physical tension and stress.",
+    "url": "https://www.youtube.com/watch?v=1nZEdqcGVzo",
+    "type": "Video",
+    "category": "Stress",
+    "tags": ["relaxation", "stress", "anxiety", "tension", "exercise"]
+  },
+  {
+    "title": "Journaling for Mental Health",
+    "description": "How keeping a journal can help you manage anxiety, reduce stress, and cope with depression.",
+    "url": "https://www.urmc.rochester.edu/encyclopedia/content.aspx?ContentID=4552&ContentTypeID=1",
+    "type": "Guide",
+    "category": "Self-Care",
+    "tags": ["journaling", "writing", "self-care", "reflection", "mental health"]
+  },
+  {
+    "title": "Breathing Exercises for Anxiety",
+    "description": "Simple breathing techniques you can practice anywhere to help manage anxiety and panic symptoms.",
+    "url": "https://www.healthline.com/health/breathing-exercises-for-anxiety",
+    "type": "Exercise",
+    "category": "Anxiety",
+    "tags": ["breathing", "anxiety", "panic", "stress", "techniques"]
+  },
+  {
+    "title": "Understanding Depression",
+    "description": "An overview of depression, including symptoms, causes, and treatment options.",
+    "url": "https://www.nimh.nih.gov/health/topics/depression",
+    "type": "Article",
+    "category": "Depression",
+    "tags": ["depression", "sadness", "mental health", "treatment", "symptoms"]
+  },
+  {
+    "title": "Guided Body Scan Meditation",
+    "description": "A 10-minute guided meditation to help you connect with your body and release tension.",
+    "url": "https://www.mindful.org/a-body-scan-meditation-to-help-you-sleep/",
+    "type": "Exercise",
+    "category": "Mindfulness",
+    "tags": ["meditation", "mindfulness", "body scan", "relaxation", "sleep"]
+  },
+  {
+    "title": "Building Resilience",
+    "description": "Strategies to help you build resilience and cope with life's challenges.",
+    "url": "https://www.apa.org/topics/resilience",
+    "type": "Guide",
+    "category": "Self-Care",
+    "tags": ["resilience", "coping", "stress", "mental health", "self-care"]
+  },
+  {
+    "title": "National Suicide Prevention Lifeline",
+    "description": "24/7 support for people in distress. Call 988.",
+    "url": "https://988lifeline.org/",
+    "type": "Crisis Support",
+    "category": "Crisis",
+    "tags": ["crisis", "suicide", "emergency", "hotline", "help"]
+  },
+  {
+    "title": "Crisis Text Line",
+    "description": "Text HOME to 741741 for crisis support.",
+    "url": "https://www.crisistextline.org/",
+    "type": "Crisis Support",
+    "category": "Crisis",
+    "tags": ["crisis", "texting", "emergency", "support", "help"]
+  }
+]
