@@ -46,14 +46,15 @@ app = Flask(__name__)
 CORS(app)
 
 # Configure JWT
-app.config['JWT_SECRET_KEY'] = os.environ.get('JWT_SECRET', 'your-secret-key')
+app.config['JWT_SECRET_KEY'] = os.environ.get('JWT_SECRET')  # Use the JWT secret from .env
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = datetime.timedelta(days=1)
 jwt = JWTManager(app)
 
 # Connect to MongoDB
-mongo_uri = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/MindfulChat')
+mongo_uri = os.environ.get('MONGODB_URI')  # Use the MongoDB URI from .env
 client = MongoClient(mongo_uri)
 db = client.get_database()
+
 
 # Configure logging
 logging.basicConfig(
