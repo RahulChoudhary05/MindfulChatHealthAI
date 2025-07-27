@@ -704,3 +704,11 @@ OSError: j-hartmann/emotion-english-distilroberta-base does not appear to have a
 2025-07-27 12:21:59,077 - werkzeug - INFO - 127.0.0.1 - - [27/Jul/2025 12:21:59] "POST /api/process HTTP/1.1" 200 -
 2025-07-27 12:21:59,623 - main - INFO - Processed message from 6885c9bfc0c41da35ad554a8: sentiment=negative, is_crisis=False
 2025-07-27 12:21:59,625 - werkzeug - INFO - 127.0.0.1 - - [27/Jul/2025 12:21:59] "POST /api/process HTTP/1.1" 200 -
+2025-07-27 13:44:19,821 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.152.157:5000
+2025-07-27 13:44:19,834 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-27 13:44:19,861 - werkzeug - INFO -  * Restarting with stat
+2025-07-27 13:44:22,186 - werkzeug - WARNING -  * Debugger is active!
+2025-07-27 13:44:22,191 - werkzeug - INFO -  * Debugger PIN: 418-669-663
