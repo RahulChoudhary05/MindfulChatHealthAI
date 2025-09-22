@@ -1,4 +1,3 @@
 .env
 nltk_data
 venv
-app.log

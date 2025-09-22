@@ -55,17 +55,28 @@ mongo_uri = os.environ.get('MONGODB_URI')  # Use the MongoDB URI from .env
 client = MongoClient(mongo_uri)
 db = client.get_database()
 
+import logging
 
-# Configure logging
+# Configure root logger to ONLY use console (no files)
 logging.basicConfig(
-    level=logging.INFO,
+    level=logging.WARNING,  # Set to WARNING to reduce INFO noise (adjust to INFO if needed)
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler("app.log"),
-        logging.StreamHandler()
+        logging.StreamHandler()  # Only console output
     ]
 )
+
+# Explicitly configure Werkzeug logger to suppress noisy restarts and prevent file propagation
+werkzeug_logger = logging.getLogger('werkzeug')
+werkzeug_logger.setLevel(logging.WARNING)  # Only show warnings/errors from Werkzeug
+werkzeug_logger.propagate = False  # Stop propagating to root (prevents any file spillover)
+
+# Get main logger (for your app)
 logger = logging.getLogger("main")
+logger.setLevel(logging.INFO)  # Your app logs at INFO, but Werkzeug is quieter
+logger.propagate = False  # Ensure no propagation to other handlers
+
+
 
 # Initialize simple sentiment analyzer
 def simple_sentiment_analysis(text):
@@ -338,51 +349,41 @@ coping_strategies = {
         "Distraction techniques like engaging in an absorbing activity can temporarily shift focus away from pain."
     ]
 }
+@app.route('/')
+def index():
+    html_content = """
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MindfulChat API</title>
+        <style>
+            body {{ font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; padding: 20px; text-align: center; background-color: #f4f7f6; color: #333; }}
+            h1 {{ color: #4a90e2; }}
+            p {{ font-size: 18px; line-height: 1.6; }}
+            .api-info {{ background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-top: 20px; }}
+            ul {{ text-align: left; display: inline-block; }}
+        </style>
+    </head>
+    <body>
+        <h1>🌱 Welcome to MindfulChat API</h1>
+        <p>Your supportive mental health companion. Built with care to provide empathetic conversations, sentiment analysis, and helpful resources.</p>
+        <div class="api-info">
+            <h2>API Endpoints</h2>
+            <ul>
+                <li><strong>Auth:</strong> <code>/api/auth/register</code> & <code>/api/auth/login</code></li>
+                <li><strong>Profile:</strong> <code>/api/users/profile</code> (GET/PUT)</li>
+                <li><strong>Chats:</strong> <code>/api/chats</code> (GET/POST/DELETE)</li>
+                <li><strong>Analysis:</strong> <code>/api/analyze</code> & <code>/api/process</code></li>
+            </ul>
+            <p><em>API is running on port {port}. Use JWT for authenticated routes.</em></p>
+        </div>
+    </body>
+    </html>
+    """.format(port=os.environ.get('PORT', 5000))
+    return html_content, 200
 
-@app.route('/api/auth/register', methods=['POST'])
-def register():
-    data = request.get_json()
-    
-    # Validate input
-    if not data or not data.get('email') or not data.get('password') or not data.get('name'):
-        return jsonify({"message": "Missing required fields"}), 400
-    
-    # Check if email already exists
-    if db.users.find_one({"email": data['email']}):
-        return jsonify({"message": "Email already registered"}), 400
-    
-    # Validate email format
-    email_regex = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
-    if not re.match(email_regex, data['email']):
-        return jsonify({"message": "Invalid email format"}), 400
-    
-    # Validate password strength
-    if len(data['password']) < 6:
-        return jsonify({"message": "Password must be at least 6 characters"}), 400
-    
-    # Create user
-    new_user = {
-        "name": data['name'],
-        "email": data['email'],
-        "password": generate_password_hash(data['password']),
-        "createdAt": datetime.datetime.utcnow(),
-        "preferences": {
-            "notifications": True,
-            "language": "English",
-            "theme": "light"
-        }
-    }
-    
-    result = db.users.insert_one(new_user)
-    
-    # Create access token
-    access_token = create_access_token(identity=str(result.inserted_id))
-    
-    return jsonify({
-        "message": "User registered successfully",
-        "token": access_token,
-        "user": format_user(new_user)
-    }), 201
 
 @app.route('/api/auth/login', methods=['POST'])
 def login():
