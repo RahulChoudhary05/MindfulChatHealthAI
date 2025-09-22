@@ -23,13 +23,17 @@ app.use(cors({
 }));
 app.use(express.json());
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI)
-  .then(() => console.log('Connected to MongoDB'))
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  ssl: true // Atlas requires TLS/SSL
+})
+  .then(() => console.log('Connected to MongoDB Atlas'))
   .catch(err => {
-    console.error('MongoDB connection error:', err);
+    console.error('MongoDB connection error:', err.message);
     process.exit(1);
   });
+
 
 // Routes
 app.use('/api/auth', authRoutes);
