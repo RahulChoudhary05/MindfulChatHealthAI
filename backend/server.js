@@ -55,6 +55,11 @@ app.get('/health', (req, res) => {
   });
 });
 
+// Root route
+app.get('/', (req, res) => {
+  res.send('Welcome to the MindfulChatHealthAI Backend API');
+});
+
 // Error handling middleware
 app.use((err, req, res, next) => {
   console.error(err.stack);
