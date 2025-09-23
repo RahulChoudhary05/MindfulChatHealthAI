@@ -469,7 +469,7 @@ app.post("/api/chat/message", optionalAuth, async (req, res) => {
     let chartData = null
     try {
       // Try to call the Python AI service
-      const response = await axios.post("http://localhost:5000/api/process", {
+      const response = await axios.post("https://mindfulchathealthai.onrender.com/api/process", {
         message,
         userId: userId.toString(),
       })
