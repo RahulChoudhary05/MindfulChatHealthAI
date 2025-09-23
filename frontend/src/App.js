@@ -25,7 +25,7 @@ import ChatInterface from "./components/ChatInterface" // Import ChatInterface
 import "./index.css"
 
 // Set default base URL for axios
-axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'http://localhost:4000';
+axios.defaults.baseURL = 'http://localhost:4000';
 axios.defaults.withCredentials = true;
 
 // Add request interceptor to include auth token
