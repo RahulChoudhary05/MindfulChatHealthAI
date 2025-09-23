@@ -25,7 +25,7 @@ import ChatInterface from "./components/ChatInterface" // Import ChatInterface
 import "./index.css"
 
 // Set default base URL for axios
-axios.defaults.baseURL = 'http://localhost:4000' || "https://mindfulchathealthaibackend.onrender.com";
+axios.defaults.baseURL = "https://mindfulchathealthaibackend.onrender.com";
 axios.defaults.withCredentials = true;
 
 // Add request interceptor to include auth token
